@@ -1,4 +1,6 @@
 import { Form, FormItem, Input } from "./components";
+import "./App.css";
+
 export default {
   components: { Form, FormItem, Input },
 
@@ -28,16 +30,18 @@ export default {
   render: function (h) {
     return (
       <div>
-        <Form ref="form" data={this.formValidate} rules={this.ruleValidate}>
-          <FormItem label="name" prop="name">
-            <Input v-model={this.formValidate.name} />
-          </FormItem>
-          <FormItem label="mail" prop="mail">
-            <Input v-model={this.formValidate.mail} />
-          </FormItem>
-        </Form>
-
-        <button onClick={this.handleSubmit}>提交</button>
+        <h3>表单ui组件demo</h3>
+        <div class="form-demo">
+          <Form ref="form" data={this.formValidate} rules={this.ruleValidate}>
+            <FormItem label="name" prop="name">
+              <Input v-model={this.formValidate.name} />
+            </FormItem>
+            <FormItem label="mail" prop="mail">
+              <Input v-model={this.formValidate.mail} />
+            </FormItem>
+          </Form>
+          <button onClick={this.handleSubmit}>提交</button>
+        </div>
       </div>
     );
   },
