@@ -1,11 +1,9 @@
-/* eslint-disable no-unused-vars */
-
-/**
- * Form
- */
-
 export default {
-  name: "super",
+  provide: function () {
+    return {
+      form: this,
+    };
+  },
   props: {
     data: {
       type: Object,
@@ -16,10 +14,11 @@ export default {
   },
   data: function () {
     return {
-      fields: [], // 缓存内部的item
+      fields: [], // 缓存内部的form-item实例
     };
   },
   created: function () {
+    this.componentName = "SuperForm";
     this.$on("super.form.addField", (field) => {
       if (field) {
         this.fields.push(field);

@@ -1,8 +1,6 @@
-/* eslint-disable no-unused-vars */
-
-import { Form, FormItem } from "./components";
+import { Form, FormItem, Input } from "./components";
 export default {
-  components: { Form, FormItem },
+  components: { Form, FormItem, Input },
 
   data: function () {
     return {
@@ -23,8 +21,11 @@ export default {
     return (
       <div>
         <Form data={this.formValidate} rules={this.ruleValidate}>
-          <FormItem label="name" prop="delivery">
-            <input type="text" />
+          <FormItem label="name" prop="name">
+            <Input v-model={this.formValidate.name} />
+          </FormItem>
+          <FormItem label="mail" prop="mail">
+            <Input v-model={this.formValidate.mail} />
           </FormItem>
         </Form>
       </div>
