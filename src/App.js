@@ -17,10 +17,18 @@ export default {
       },
     };
   },
+  methods: {
+    handleSubmit() {
+      this.$refs.form.validate().then((res) => {
+        console.log(res);
+        console.log(this.formValidate);
+      });
+    },
+  },
   render: function (h) {
     return (
       <div>
-        <Form data={this.formValidate} rules={this.ruleValidate}>
+        <Form ref="form" data={this.formValidate} rules={this.ruleValidate}>
           <FormItem label="name" prop="name">
             <Input v-model={this.formValidate.name} />
           </FormItem>
@@ -28,6 +36,8 @@ export default {
             <Input v-model={this.formValidate.mail} />
           </FormItem>
         </Form>
+
+        <button onClick={this.handleSubmit}>提交</button>
       </div>
     );
   },

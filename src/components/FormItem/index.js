@@ -34,10 +34,12 @@ export default {
     }
   },
   methods: {
+    /** 监听基础表单控件触发校验 */
     setRules() {
       this.$on("super.formItem.onBlur", this.onFieldBlur);
       this.$on("super.formItem.onChange", this.onFieldChange);
     },
+    /** get all rules */
     getRules() {
       let formRules = this.form.rules;
       if (formRules && formRules[this.prop]) {
@@ -46,23 +48,26 @@ export default {
         return [];
       }
     },
+
+    /** get符合条件的rules */
     getFilteredRule(trigger) {
       const rules = this.getRules();
-      return rules.filter((rule) => rule.trigger === trigger || !rule.trigger);
+      return rules.filter((rule) => !trigger || rule.trigger === trigger);
     },
+
+    /** 校验 */
     validate(trigger, cb = () => {}) {
       const rules = this.getFilteredRule(trigger);
-      console.log(rules);
       if (!rules || rules.length === 0) return true;
 
       this.validateState = "validating";
 
-      let descriptor = {};
-      let model = {};
-      model[this.prop] = this.fieldValue;
-      descriptor[this.prop] = rules;
+      let descriptor = {},
+        model = {};
 
-      // 校验
+      descriptor[this.prop] = rules;
+      model[this.prop] = this.fieldValue;
+
       const validator = new AsyncValidator(descriptor);
       validator.validate(model, { firstFields: true }, (errors) => {
         this.validateState = !errors ? "success" : "error";
@@ -70,9 +75,11 @@ export default {
         cb(this.validateMessage);
       });
     },
+
     onFieldBlur: function () {
       this.validate("blur");
     },
+
     onFieldChange: function () {
       this.validate("input");
     },

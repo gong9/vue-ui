@@ -19,21 +19,14 @@ export default {
   },
   methods: {
     blurHandle() {
-      this.dispatch(
-        "SuperFormItem",
-        "super.formItem.onBlur",
-        this.currentValue
-      );
+      this.dispatch("SuperFormItem", "super.formItem.onBlur");
     },
     handleInput(e) {
       const val = e.target.value;
       this.currentValue = val;
+
       this.$emit("input", val);
-      this.dispatch(
-        "SuperFormItem",
-        "super.formItem.onChange",
-        this.currentValue
-      );
+      this.dispatch("SuperFormItem", "super.formItem.onChange");
     },
   },
   render: function (h) {

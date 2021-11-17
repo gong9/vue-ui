@@ -28,6 +28,28 @@ export default {
   mounted: function () {
     console.log(this.fields);
   },
+  methods: {
+    /** form级别的校验 */
+    validate(cb) {
+      return new Promise((res, rej) => {
+        let count = 0;
+        let valid = true;
+        this.fields.forEach((field) => {
+          field.validate("", (errors) => {
+            if (errors) {
+              valid = false;
+            }
+          });
+          if (++count === this.fields.length) {
+            res(valid);
+            if (typeof callback === "function") {
+              cb(valid);
+            }
+          }
+        });
+      });
+    },
+  },
   render: function (h) {
     return <form>{this.$slots.default}</form>;
   },
