@@ -1,0 +1,10 @@
+.message {
+  position: absolute;
+  top: 0;
+  width: 200px;
+  left: 50%;
+  text-align: center;
+  transform: translateX(-50%);
+  background-color: rgba(244, 165, 96, 0.363);
+  /* opacity: .3; */
+}

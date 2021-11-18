@@ -1,3 +1,5 @@
+import "./index.css";
+
 let uuid = 0;
 
 /**
@@ -37,7 +39,7 @@ export default {
   },
   render: function (h) {
     return (
-      <div>
+      <div class="message">
         {this.notice.length > 0 &&
           this.notice.map((notice) => <div>{notice.content}</div>)}
       </div>

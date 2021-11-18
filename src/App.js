@@ -19,7 +19,7 @@ export default {
     return (
       <div>
         <FormView></FormView>
-        <button onClick={this.handleClick}>alert</button>
+        <button onClick={this.handleClick}>message</button>
       </div>
     );
   },
