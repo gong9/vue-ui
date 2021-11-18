@@ -1,0 +1,6 @@
+.form-demo-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(126, 11, 11);
+}

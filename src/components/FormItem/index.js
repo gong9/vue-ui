@@ -39,7 +39,8 @@ export default {
       this.$on("super.formItem.onBlur", this.onFieldBlur);
       this.$on("super.formItem.onChange", this.onFieldChange);
     },
-    /** get all rules */
+
+    /** 获取所有rules */
     getRules() {
       let formRules = this.form.rules;
       if (formRules && formRules[this.prop]) {
