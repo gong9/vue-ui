@@ -1,4 +1,5 @@
 import FormView from "./demo/form/FormView";
+import TableView from "./demo/table";
 import "./App.css";
 
 export default {
@@ -20,6 +21,7 @@ export default {
       <div>
         <FormView></FormView>
         <button onClick={this.handleClick}>message</button>
+        <TableView />
       </div>
     );
   },
