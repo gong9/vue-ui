@@ -1,5 +1,4 @@
 import FormView from "./demo/form/FormView";
-import Message from "./components/Message/message";
 import "./App.css";
 
 export default {
@@ -10,7 +9,7 @@ export default {
   mounted: function () {},
   methods: {
     handleClick() {
-      Message.info({
+      this.$messge.info({
         content: "这是一条提示信息",
         duration: 3000,
       });

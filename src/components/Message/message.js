@@ -1,4 +1,5 @@
 import Notification from "./notification.js";
+
 let messageInstance;
 
 const getMessageInstance = () =>
@@ -12,4 +13,5 @@ export default {
   info: function (option) {
     notice(option, "info");
   },
+  // ...
 };

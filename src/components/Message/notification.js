@@ -8,8 +8,8 @@ Message.instance = () => {
     },
   }).$mount();
 
-  document.body.appendChild(vueNode.$el);
   const messageVueInstance = vueNode.$children[0];
+  document.body.appendChild(vueNode.$el);
 
   return {
     add(options) {

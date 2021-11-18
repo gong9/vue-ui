@@ -1,4 +1,9 @@
 let uuid = 0;
+
+/**
+ * 保证message notice的唯一，方面delete
+ * @returns messageNoticeName
+ */
 const getNoticeName = () => {
   return `_message${++uuid}`;
 };
