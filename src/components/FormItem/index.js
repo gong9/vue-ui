@@ -1,6 +1,7 @@
 import AsyncValidator from "async-validator";
 import emitter from "../../mixins/emitter";
 import "./index.css";
+
 export default {
   mixins: [emitter],
   inject: ["form"],
@@ -24,6 +25,7 @@ export default {
     },
   },
   created: function () {
+    // 后面通过全局混入注入组件中
     this.componentName = "SuperFormItem";
   },
   mounted: function () {

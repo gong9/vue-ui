@@ -1,6 +1,8 @@
+import CustomRender from "./TableRender";
 import "./index.css";
 
 export default {
+  components: { CustomRender },
   props: {
     data: {
       type: Array,
@@ -25,11 +27,24 @@ export default {
             })}
           </thead>
           <tbody>
-            {this.data.map((data) => {
+            {this.data.map((data, rowIndex) => {
               return (
                 <tr>
-                  {this.columns.map((item) => {
-                    return <td>{data[item.key]}</td>;
+                  {this.columns.map((item, colIndex) => {
+                    return (
+                      <td>
+                        {item.key === "options" ? (
+                          <CustomRender
+                            colData={this.data[rowIndex]}
+                            col={colIndex}
+                            row={rowIndex}
+                            render={data.render}
+                          />
+                        ) : (
+                          data[item.key]
+                        )}
+                      </td>
+                    );
                   })}
                 </tr>
               );

@@ -1,5 +1,6 @@
 import { Table } from "../../components";
 export default {
+  ctx: this,
   data: function () {
     return {
       columns: [
@@ -19,6 +20,10 @@ export default {
           title: "sex",
           key: "sex",
         },
+        {
+          title: "操作",
+          key: "options",
+        },
       ],
       data: [
         {
@@ -26,18 +31,36 @@ export default {
           name: "zhangsan",
           age: 18,
           sex: "男",
+          render: function (h, params) {
+            return (
+              <button
+                onClick={() => {
+                  console.log(this);
+                  this.$message(params.name);
+                }}
+              >
+                按钮1
+              </button>
+            );
+          },
         },
         {
           id: 2,
           name: "lisi",
           age: 18,
           sex: "男",
+          render: function (h, params) {
+            return <button>按钮2</button>;
+          },
         },
         {
           id: 3,
           name: "wangwu",
           age: 20,
           sex: "男",
+          render: function (h, params) {
+            return <button>按钮3</button>;
+          },
         },
       ],
     };
