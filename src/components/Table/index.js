@@ -4,6 +4,11 @@ import "./index.css";
 export default {
   components: { CustomRender },
   props: {
+    provide: function () {
+      return {
+        table: this,
+      };
+    },
     data: {
       type: Array,
       default() {
@@ -55,3 +60,28 @@ export default {
     );
   },
 };
+
+{
+  /* <lowcode-table :data="data" :schame="json"> */
+}
+//
+const json = [
+  {
+    label: "申诉ID",
+    name: "申诉ID",
+    value: (row) => {
+      return (h) => {
+        return <div>data</div>;
+      };
+    },
+  },
+  {
+    name: "处置ID",
+    label: "处置ID",
+    value: (row) => {
+      return (h) => {
+        return <div>{row.data}</div>;
+      };
+    },
+  },
+];

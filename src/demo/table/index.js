@@ -1,6 +1,6 @@
 import { Table } from "../../components";
+
 export default {
-  ctx: this,
   data: function () {
     return {
       columns: [
